@@ -30,11 +30,8 @@
         }
 
         header {
-            padding: 30px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
+            padding: 40px 0;
+            border-bottom: 1px solid #e5e7eb;
         }
 
         .header-content {
@@ -47,51 +44,55 @@
             font-size: 2rem;
             font-weight: 600;
             margin: 0;
+            color: #1f2937;
         }
 
         .header-right {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
 
         .lang-toggle {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 4px;
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            color: #374151;
+            padding: 8px 12px;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
         }
 
         .lang-toggle:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: #e5e7eb;
+            border-color: #9ca3af;
         }
 
         .header-divider {
             width: 1px;
-            height: 20px;
-            background: rgba(255, 255, 255, 0.3);
+            height: 16px;
+            background: #d1d5db;
         }
 
         .github-link {
             display: flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            gap: 6px;
+            background: #1f2937;
+            border: 1px solid #374151;
             color: white;
-            padding: 8px 16px;
-            border-radius: 4px;
+            padding: 8px 12px;
+            border-radius: 6px;
             text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
         }
 
         .github-link:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: #374151;
             color: white;
         }
 
@@ -101,11 +102,11 @@
 
         .calculator-section {
             background: white;
-            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
             padding: 40px;
             margin-bottom: 40px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-            border: 1px solid rgba(255,255,255,0.8);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
         .input-group {
@@ -125,7 +126,7 @@
             padding: 16px 24px;
             font-size: 1.5rem;
             border: 2px solid #e1e8ed;
-            border-radius: 4px;
+            border-radius: 6px;
             background: #f8fafc;
             transition: all 0.3s ease;
             font-family: 'JetBrains Mono', monospace;
@@ -136,7 +137,7 @@
             outline: none;
             border-color: #667eea;
             background: white;
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
         .slider-container {
@@ -205,9 +206,9 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 30px;
-            border-radius: 4px;
+            border-radius: 8px;
             text-align: center;
-            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.2);
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.2);
             transition: transform 0.3s ease;
         }
 
@@ -247,10 +248,11 @@
 
         .comparison-section {
             background: white;
-            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
             padding: 40px;
             margin-bottom: 40px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
         .comparison-title {
@@ -264,7 +266,7 @@
         .chart-container {
             height: 300px;
             background: #f8fafc;
-            border-radius: 4px;
+            border-radius: 6px;
             display: flex;
             align-items: end;
             justify-content: space-around;
@@ -275,7 +277,7 @@
         .chart-bar {
             width: 80px;
             background: linear-gradient(to top, #667eea, #764ba2);
-            border-radius: 4px 4px 0 0;
+            border-radius: 6px 6px 0 0;
             position: relative;
             transition: all 0.8s ease;
             min-height: 20px;
@@ -318,7 +320,7 @@
         .insights {
             background: #fff3cd;
             border: 1px solid #ffeaa7;
-            border-radius: 4px;
+            border-radius: 6px;
             padding: 30px;
             margin: 40px 0;
         }
@@ -350,13 +352,14 @@
             flex-shrink: 0;
         }
 
-        /* FAQ Material Design 样式 */
+        /* FAQ最佳实践设计 */
         .faq-section {
             background: white;
-            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
             padding: 40px;
             margin: 40px 0;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
         .faq-title {
@@ -368,13 +371,17 @@
         }
 
         .faq-item {
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e5e7eb;
             margin-bottom: 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
             background: white;
-            border-radius: 4px;
+            border-radius: 6px;
             margin-bottom: 8px;
             overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
         }
 
         .faq-question {
@@ -387,69 +394,82 @@
             font-weight: 600;
             color: #2c3e50;
             cursor: pointer;
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr 44px;
             align-items: center;
-            transition: all 0.3s ease;
-            border-bottom: none;
+            gap: 16px;
+            transition: all 0.2s ease;
+            min-height: 44px;
         }
 
         .faq-question:hover {
-            background: #f5f5f5;
+            background: #f9fafb;
+            color: #667eea;
+        }
+
+        .faq-question:focus {
+            outline: 2px solid #667eea;
+            outline-offset: -2px;
+        }
+
+        .faq-icon {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+            color: #6b7280;
+            justify-self: center;
+            transform: rotate(0deg);
+        }
+
+        .faq-icon.active {
+            transform: rotate(90deg);
             color: #667eea;
         }
 
         .faq-answer {
             padding: 0 24px;
-            color: #666;
+            color: #4b5563;
             line-height: 1.6;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            background: #fafafa;
+            transition: all 0.3s ease;
+            background: #f9fafb;
+            cursor: pointer;
         }
 
         .faq-answer.active {
-            padding: 20px 24px;
-            max-height: 200px;
+            padding: 24px;
+            max-height: 300px;
         }
 
-        .faq-icon {
-            transition: transform 0.3s ease;
-            color: #999;
-        }
-
-        .faq-icon.active {
-            transform: rotate(180deg);
-            color: #667eea;
+        .faq-answer.expanded {
+            padding: 32px;
+            background: #f3f4f6;
         }
 
         footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
+            border-top: 1px solid #e5e7eb;
             padding: 40px 0;
             margin-top: 80px;
         }
 
         .footer-content {
-            max-width: 400px;
+            max-width: 600px;
             margin: 0 auto;
+            text-align: center;
         }
 
         .footer-quote {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-style: italic;
-            line-height: 1.5;
-            opacity: 0.8;
-            color: #bbb;
+            line-height: 1.6;
+            color: #6b7280;
+            margin-bottom: 12px;
         }
 
         .footer-signature {
-            margin-top: 10px;
-            font-size: 0.75rem;
-            opacity: 0.6;
-            color: #999;
+            font-size: 0.8rem;
+            color: #9ca3af;
         }
 
         /* 动画类 */
@@ -473,9 +493,9 @@
         }
 
         @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
+            0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
         }
 
         /* 数字滚动动画 */
@@ -499,10 +519,10 @@
 
             .header-right {
                 flex-direction: row;
-                gap: 15px;
+                gap: 12px;
             }
 
-            h1 {
+            .header-left h1 {
                 font-size: 1.8rem;
             }
             
@@ -534,10 +554,15 @@
             .faq-question {
                 padding: 16px 20px;
                 font-size: 1rem;
+                grid-template-columns: 1fr 40px;
             }
 
             .faq-answer.active {
-                padding: 16px 20px;
+                padding: 20px;
+            }
+
+            .faq-answer.expanded {
+                padding: 24px;
             }
         }
     </style>
@@ -638,50 +663,90 @@
                 
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFAQ(this)">
-                        年化8%的收益率现实吗？
-                        <i class="fas fa-chevron-down faq-icon"></i>
+                        <span>投资是什么？</span>
+                        <i class="fas fa-chevron-right faq-icon"></i>
                     </button>
-                    <div class="faq-answer">
+                    <div class="faq-answer" onclick="expandAnswer(this)">
+                        投资是指将资金投入到能够产生收益的资产中，通过时间和复利效应实现财富增长。投资不是投机，而是理性配置资产，让钱为你工作。
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>为什么要投资？</span>
+                        <i class="fas fa-chevron-right faq-icon"></i>
+                    </button>
+                    <div class="faq-answer" onclick="expandAnswer(this)">
+                        通胀每年吞噬购买力约3%，而银行存款利率远低于此。不投资就是在变相亏损。投资是对抗通胀、实现财务自由的必要手段。
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>该怎么投资？</span>
+                        <i class="fas fa-chevron-right faq-icon"></i>
+                    </button>
+                    <div class="faq-answer" onclick="expandAnswer(this)">
+                        定投指数基金是最适合普通人的投资方式。选择低费率的宽基指数基金，每月固定投入，长期持有。避免频繁交易，时间是投资的朋友。
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>什么是房产？什么是基金？什么是股票？什么是比特币？</span>
+                        <i class="fas fa-chevron-right faq-icon"></i>
+                    </button>
+                    <div class="faq-answer" onclick="expandAnswer(this)">
+                        房产：实物资产，抗通胀，但流动性差、门槛高。基金：专业机构管理的资产组合，分散风险。股票：公司所有权份额，波动大但长期收益高。比特币：数字货币，高风险高收益，适合小额配置。
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>年化8%的收益率现实吗？</span>
+                        <i class="fas fa-chevron-right faq-icon"></i>
+                    </button>
+                    <div class="faq-answer" onclick="expandAnswer(this)">
                         沪深300指数过去15年年化收益约9.2%，标普500指数过去30年年化收益约10%。考虑到市场波动，8%是相对保守且可实现的长期预期。
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFAQ(this)">
-                        为什么散户炒股收益这么低？
-                        <i class="fas fa-chevron-down faq-icon"></i>
+                        <span>为什么散户炒股收益这么低？</span>
+                        <i class="fas fa-chevron-right faq-icon"></i>
                     </button>
-                    <div class="faq-answer">
+                    <div class="faq-answer" onclick="expandAnswer(this)">
                         统计显示90%散户长期亏损，主要原因：频繁交易产生高额手续费、追涨杀跌、缺乏专业知识、情绪化决策。定投能有效避免这些问题。
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFAQ(this)">
-                        定投真的能平滑风险吗？
-                        <i class="fas fa-chevron-down faq-icon"></i>
+                        <span>定投真的能平滑风险吗？</span>
+                        <i class="fas fa-chevron-right faq-icon"></i>
                     </button>
-                    <div class="faq-answer">
+                    <div class="faq-answer" onclick="expandAnswer(this)">
                         定投通过"平均成本法"，在市场低迷时买入更多份额，高涨时买入较少份额，长期看能有效平滑市场波动，降低投资风险。
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFAQ(this)">
-                        应该选择什么基金进行定投？
-                        <i class="fas fa-chevron-down faq-icon"></i>
+                        <span>应该选择什么基金进行定投？</span>
+                        <i class="fas fa-chevron-right faq-icon"></i>
                     </button>
-                    <div class="faq-answer">
+                    <div class="faq-answer" onclick="expandAnswer(this)">
                         建议选择宽基指数基金（如沪深300、中证500）或优质主动型基金。关键是低费率、业绩稳定、管理规范。切忌频繁更换基金。
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFAQ(this)">
-                        市场暴跌时还要继续定投吗？
-                        <i class="fas fa-chevron-down faq-icon"></i>
+                        <span>市场暴跌时还要继续定投吗？</span>
+                        <i class="fas fa-chevron-right faq-icon"></i>
                     </button>
-                    <div class="faq-answer">
+                    <div class="faq-answer" onclick="expandAnswer(this)">
                         市场暴跌恰恰是定投的最佳时机！此时能以更低价格买入更多份额，为未来收益打下基础。巴菲特说："别人恐惧时我贪婪"。
                     </div>
                 </div>
@@ -695,7 +760,6 @@
                 <p class="footer-quote">
                     "数据是佛经，人性是红尘——这模拟器是木鱼，敲再响也未必能渡人，但总有人会顿悟。"
                 </p>
-                <p class="footer-signature">— 小投资者团队</p>
             </div>
         </div>
     </footer>
@@ -850,7 +914,7 @@
             }
         }
 
-        // FAQ 折叠功能 - 修复版本
+        // FAQ 最佳实践交互
         function toggleFAQ(element) {
             const answer = element.nextElementSibling;
             const icon = element.querySelector('.faq-icon');
@@ -862,7 +926,7 @@
             allAnswers.forEach((ans, index) => {
                 if (ans !== answer && ans.classList.contains('active')) {
                     ans.classList.remove('active');
-                    ans.style.maxHeight = null;
+                    ans.style.maxHeight = '0';
                     allIcons[index].classList.remove('active');
                 }
             });
@@ -870,7 +934,7 @@
             // 切换当前FAQ
             if (answer.classList.contains('active')) {
                 answer.classList.remove('active');
-                answer.style.maxHeight = null;
+                answer.style.maxHeight = '0';
                 icon.classList.remove('active');
             } else {
                 answer.classList.add('active');
@@ -879,11 +943,28 @@
             }
         }
 
+        // 答案区域点击扩展
+        function expandAnswer(element) {
+            if (element.classList.contains('active')) {
+                element.classList.toggle('expanded');
+            }
+        }
+
         // 语言切换功能（占位符）
         function toggleLanguage() {
-            // 这里可以实现中英文切换逻辑
             alert('语言切换功能待实现');
         }
+
+        // 键盘导航支持
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                const activeElement = document.activeElement;
+                if (activeElement.classList.contains('faq-question')) {
+                    e.preventDefault();
+                    toggleFAQ(activeElement);
+                }
+            }
+        });
 
         // 页面加载完成后初始化计算器
         document.addEventListener('DOMContentLoaded', () => {
