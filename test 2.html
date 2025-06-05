@@ -13,7 +13,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
             --bg-primary: #ffffff;
@@ -49,10 +48,9 @@
         }
 
         header {
-            padding: 15px 0;
+            padding: 20px 0;
             border-bottom: 1px solid var(--border-color);
             background: var(--bg-primary);
-            margin-bottom: 10px;
         }
 
         .header-content {
@@ -62,7 +60,7 @@
         }
 
         .header-left h3 {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-weight: 600;
             margin: 0;
             color: var(--text-primary);
@@ -164,188 +162,272 @@
         }
 
         main {
-            padding: 30px 0;
+            padding: 40px 0;
         }
 
-        /* 参数设置区域 */
-        .settings-section {
-            background: var(--bg-primary);
-            padding: 30px 0;
-            margin-bottom: 30px;
-        }
-
-        .settings-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 25px;
-            color: var(--text-primary);
-            text-align: center;
-        }
-
-        .settings-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .setting-group {
-            background: var(--bg-secondary);
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-
-        .setting-group label {
-            display: block;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: var(--text-primary);
-        }
-
-        .setting-input {
-            width: 100%;
-            padding: 12px 16px;
-            font-size: 1.1rem;
-            border: 2px solid var(--border-color);
-            border-radius: 6px;
-            background: var(--bg-card);
-            transition: all 0.3s ease;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .setting-input:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        .setting-select {
-            width: 100%;
-            padding: 12px 16px;
-            font-size: 1rem;
-            border: 2px solid var(--border-color);
-            border-radius: 6px;
-            background: var(--bg-card);
-            transition: all 0.3s ease;
-        }
-
-        .setting-select:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        /* 收益率选择器 */
-        .rate-selector {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 8px;
-        }
-
-        .rate-option {
-            padding: 8px 12px;
-            background: var(--bg-card);
-            border: 2px solid var(--border-color);
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .rate-option:hover {
-            border-color: var(--accent-color);
-            background: var(--bg-secondary);
-        }
-
-        .rate-option.active {
-            background: var(--accent-color);
-            color: white;
-            border-color: var(--accent-color);
-        }
-
-        /* 数据展示区域 */
-        .data-section {
+        .calculator-section {
             background: var(--bg-primary);
             padding: 40px 0;
             margin-bottom: 40px;
         }
 
-        .data-section h2 {
+        .input-group {
+            margin-bottom: 40px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .amount-input {
+            width: 100%;
+            padding: 16px 24px;
+            font-size: 1.5rem;
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--bg-secondary);
+            transition: all 0.3s ease;
+            font-family: 'JetBrains Mono', monospace;
+            text-align: center;
+        }
+
+        .amount-input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background: var(--bg-card);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .slider-container {
+            margin: 30px 0;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--border-color);
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .slider-value {
             text-align: center;
             font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-top: 15px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .result-card.savings {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            color: #8B4513;
+        }
+
+        .result-card.speculation {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: #8B0000;
+        }
+
+        .result-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .result-amount {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .result-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .comparison-section {
+            background: var(--bg-primary);
+            padding: 40px 0;
+            margin-bottom: 40px;
+        }
+
+        .comparison-title {
+            text-align: center;
+            font-size: 2rem;
             font-weight: 700;
             margin-bottom: 30px;
             color: var(--text-primary);
         }
 
-        .data-table-container {
-            overflow-x: auto;
-            margin-bottom: 30px;
-        }
-
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-            background: var(--bg-card);
-            border-radius: 6px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .data-table th,
-        .data-table td {
-            padding: 12px;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .data-table th {
-            background: var(--bg-secondary);
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .data-table td {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--text-secondary);
-        }
-
-        .data-table tr:hover {
-            background: var(--bg-secondary);
-        }
-
         .chart-container {
+            height: 300px;
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            display: flex;
+            align-items: end;
+            justify-content: space-around;
+            padding: 40px 20px;
+            margin: 30px 0;
+        }
+
+        .chart-bar {
+            width: 80px;
+            background: linear-gradient(to top, #667eea, #764ba2);
+            border-radius: 6px 6px 0 0;
             position: relative;
-            height: 400px;
-            margin: 20px 0;
+            transition: all 0.8s ease;
+            min-height: 20px;
+        }
+
+        .chart-bar.savings {
+            background: linear-gradient(to top, #ffecd2, #fcb69f);
+        }
+
+        .chart-bar.speculation {
+            background: linear-gradient(to top, #ff9a9e, #fecfef);
+        }
+
+        .chart-label {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            width: 100px;
+        }
+
+        .chart-value {
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .insights {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 6px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+
+        .insights-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #856404;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .insights-list {
+            list-style: none;
+        }
+
+        .insights-list li {
+            padding: 8px 0;
+            color: #856404;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .insights-list li::before {
+            content: "💡";
+            flex-shrink: 0;
         }
 
         /* FAQ 简化设计 */
         .faq-section {
-            margin: 40px 0;
+            margin: 60px 0;
             background: var(--bg-primary);
-            position: relative;
         }
 
         .faq-title {
-            position: absolute;
-            top: 0;
-            left: 0;
-            font-size: 1.4rem;
+            text-align: center;
+            font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
             color: var(--text-primary);
         }
 
         .faq-container {
             max-width: 800px;
             margin: 0 auto;
-            padding-top: 50px;
         }
 
         .faq-item {
@@ -365,21 +447,22 @@
             text-align: left;
             padding: 20px 0;
             font-size: 1rem;
-            font-weight: 700;
+            font-weight: 600;
             color: var(--text-primary);
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: box-shadow 0.2s ease;
+            transition: color 0.2s ease;
         }
 
         .faq-question:hover {
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            color: var(--accent-color);
         }
 
         .faq-question:focus {
             outline: none;
+            color: var(--accent-color);
         }
 
         .faq-question-text {
@@ -397,11 +480,12 @@
 
         .faq-icon.active {
             transform: rotate(45deg);
+            color: var(--accent-color);
         }
 
         .faq-answer {
             background: var(--bg-primary);
-            color: var(--text-primary);
+            color: var(--text-secondary);
             line-height: 1.7;
             max-height: 0;
             overflow: hidden;
@@ -418,8 +502,8 @@
 
         footer {
             border-top: 1px solid var(--border-color);
-            padding: 25px 0;
-            margin-top: 50px;
+            padding: 30px 0;
+            margin-top: 60px;
             background: var(--bg-primary);
         }
 
@@ -482,7 +566,7 @@
             }
 
             header {
-                padding: 12px 0;
+                padding: 16px 0;
             }
 
             .header-content {
@@ -491,30 +575,35 @@
             }
 
             .header-left h3 {
-                font-size: 1.2rem;
+                font-size: 1.6rem;
             }
 
             .header-right {
                 gap: 12px;
             }
             
-            .settings-section,
-            .data-section {
-                padding: 20px 0;
-                margin: 15px 0;
+            .calculator-section,
+            .comparison-section {
+                padding: 25px 0;
+                margin: 20px 0;
+            }
+            
+            .result-amount {
+                font-size: 1.8rem;
+            }
+            
+            .chart-container {
+                height: 200px;
+                padding: 20px 10px;
+            }
+            
+            .chart-bar {
+                width: 60px;
             }
 
-            .settings-grid {
+            .results {
                 grid-template-columns: 1fr;
                 gap: 20px;
-            }
-
-            .rate-selector {
-                justify-content: center;
-            }
-
-            .chart-container {
-                height: 300px;
             }
 
             .faq-question {
@@ -524,14 +613,6 @@
 
             .faq-answer.active {
                 padding-bottom: 16px;
-            }
-
-            .faq-title {
-                font-size: 1.2rem;
-            }
-
-            .faq-container {
-                padding-top: 40px;
             }
         }
     </style>
@@ -563,95 +644,72 @@
 
     <main>
         <div class="container">
-            <!-- 参数设置部分 -->
-            <section class="settings-section">
-                <h2 class="settings-title">📊 投资参数设置</h2>
-                
-                <div class="settings-grid">
-                    <div class="setting-group">
-                        <label for="investmentType">
-                            <i class="fas fa-coins"></i> 投资方式
-                        </label>
-                        <select id="investmentType" class="setting-select">
-                            <option value="equal">每年等额投资</option>
-                            <option value="increasing">每年追加相同数额</option>
-                            <option value="withdrawal">每年从总资金抽出等额</option>
-                        </select>
-                    </div>
+            <!-- 计算器部分 -->
+            <section class="calculator-section">
+                <div class="input-group">
+                    <label for="monthlyAmount">
+                        <i class="fas fa-coins"></i> 每月定投金额 (元)
+                    </label>
+                    <input type="number" id="monthlyAmount" class="amount-input" value="1000" min="100" max="50000" step="100">
+                </div>
 
-                    <div class="setting-group">
-                        <label for="annualAmount">
-                            <i class="fas fa-money-bill-wave"></i> 每年投资金额 (元)
-                        </label>
-                        <input type="number" id="annualAmount" class="setting-input" value="12000" min="1000" max="500000" step="1000">
-                    </div>
-
-                    <div class="setting-group" id="additionalAmountGroup" style="display: none;">
-                        <label for="additionalAmount">
-                            <i class="fas fa-plus-circle"></i> 每年追加金额 (元)
-                        </label>
-                        <input type="number" id="additionalAmount" class="setting-input" value="2000" min="0" max="100000" step="500">
-                    </div>
-
-                    <div class="setting-group" id="initialCapitalGroup" style="display: none;">
-                        <label for="initialCapital">
-                            <i class="fas fa-piggy-bank"></i> 初始总资金 (元)
-                        </label>
-                        <input type="number" id="initialCapital" class="setting-input" value="100000" min="10000" max="10000000" step="10000">
-                    </div>
-
-                    <div class="setting-group">
-                        <label for="totalYears">
-                            <i class="fas fa-calendar-alt"></i> 总投资年限 (年)
-                        </label>
-                        <input type="number" id="totalYears" class="setting-input" value="25" min="5" max="50" step="1">
-                    </div>
-
-                    <div class="setting-group">
-                        <label for="yearStep">
-                            <i class="fas fa-step-forward"></i> 年限显示间隔 (年)
-                        </label>
-                        <input type="number" id="yearStep" class="setting-input" value="2" min="1" max="5" step="1">
+                <div class="slider-container">
+                    <label for="returnRate"><i class="fas fa-chart-line"></i> 年化收益率</label>
+                    <div class="slider-wrapper">
+                        <input type="range" id="returnRate" class="slider" min="1" max="20" value="8" step="0.5" 
+                               title="调整年化收益率" aria-label="年化收益率滑块">
+                        <div class="slider-value"><span id="rateDisplay">8.0</span>%</div>
                     </div>
                 </div>
 
-                <div class="setting-group">
-                    <label>
-                        <i class="fas fa-percentage"></i> 年化收益率选择
-                    </label>
-                    <div class="rate-selector" id="rateSelector">
-                        <div class="rate-option active" data-rate="5">5%</div>
-                        <div class="rate-option" data-rate="10">10%</div>
-                        <div class="rate-option" data-rate="15">15%</div>
-                        <div class="rate-option" data-rate="20">20%</div>
-                        <div class="rate-option" data-rate="25">25%</div>
+                <div class="results">
+                    <div class="result-card">
+                        <div class="result-title">📈 定投收益 (20年)</div>
+                        <div class="result-amount rolling-animation" id="investmentResult">¥589,020</div>
+                        <div class="result-desc">复利让时间成为你的朋友</div>
+                    </div>
+                    <div class="result-card savings">
+                        <div class="result-title">🏦 活期存款 (20年)</div>
+                        <div class="result-amount rolling-animation" id="savingsResult">¥247,297</div>
+                        <div class="result-desc">按年化0.35%计算</div>
+                    </div>
+                    <div class="result-card speculation">
+                        <div class="result-title">🎲 散户炒股 (20年)</div>
+                        <div class="result-amount rolling-animation" id="speculationResult">¥180,000</div>
+                        <div class="result-desc">平均亏损25%本金</div>
                     </div>
                 </div>
             </section>
 
-            <!-- 数据展示区域 -->
-            <section class="data-section">
-                <h2>📈 收益数据分析</h2>
-                
-                <div class="data-table-container">
-                    <table class="data-table" id="dataTable">
-                        <thead>
-                            <tr id="tableHeader">
-                                <th>年限</th>
-                                <th>5%</th>
-                                <th>10%</th>
-                                <th>15%</th>
-                                <th>20%</th>
-                                <th>25%</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tableBody">
-                        </tbody>
-                    </table>
+            <!-- 对比分析 -->
+            <section class="comparison-section">
+                <h2 class="comparison-title">📊 20年收益对比</h2>
+                <div class="chart-container">
+                    <div class="chart-bar" id="chartInvestment">
+                        <div class="chart-label">定投</div>
+                        <div class="chart-value" id="chartInvestmentValue">¥589,020</div>
+                    </div>
+                    <div class="chart-bar savings" id="chartSavings">
+                        <div class="chart-label">存款</div>
+                        <div class="chart-value" id="chartSavingsValue">¥247,297</div>
+                    </div>
+                    <div class="chart-bar speculation" id="chartSpeculation">
+                        <div class="chart-label">炒股</div>
+                        <div class="chart-value" id="chartSpeculationValue">¥180,000</div>
+                    </div>
                 </div>
 
-                <div class="chart-container">
-                    <canvas id="investmentChart"></canvas>
+                <div class="insights">
+                    <div class="insights-title">
+                        <i class="fas fa-lightbulb"></i>
+                        数据洞察
+                    </div>
+                    <ul class="insights-list">
+                        <li>定投收益是活期存款的<strong id="savingsMultiple">2.4</strong>倍</li>
+                        <li>定投收益是散户炒股的<strong id="speculationMultiple">3.3</strong>倍</li>
+                        <li>每月投资<strong id="monthlyDisplay">1000</strong>元，20年总投入<strong id="totalInvested">24万</strong>元</li>
+                        <li>复利增值<strong id="compoundGain">34.9万</strong>元，增长率<strong id="growthRate">145%</strong></li>
+                    </ul>
                 </div>
             </section>
 
@@ -764,119 +822,63 @@
     </footer>
 
     <script>
-        // 投资计算器类
+        // 计算器核心逻辑
         class InvestmentCalculator {
             constructor() {
-                this.annualAmount = 12000;
-                this.investmentType = 'equal';
-                this.additionalAmount = 2000;
-                this.initialCapital = 100000;
-                this.totalYears = 25;
-                this.yearStep = 2;
-                this.selectedRates = [5, 10, 15, 20, 25];
-                this.chart = null;
+                this.monthlyAmount = 1000;
+                this.annualRate = 0.08;
+                this.years = 20;
+                this.savingsRate = 0.0035; // 活期存款年化收益
+                this.speculationLoss = 0.25; // 散户平均亏损率
                 
                 this.initEventListeners();
-                this.updateDataDisplay();
+                this.calculate();
             }
 
             initEventListeners() {
-                // 投资方式变化
-                document.getElementById('investmentType').addEventListener('change', (e) => {
-                    this.investmentType = e.target.value;
-                    this.toggleAdditionalInputs();
-                    this.updateDataDisplay();
-                });
-
-                // 基础参数变化
-                document.getElementById('annualAmount').addEventListener('input', (e) => {
-                    this.annualAmount = parseFloat(e.target.value) || 12000;
-                    this.updateDataDisplay();
-                });
-
-                document.getElementById('additionalAmount').addEventListener('input', (e) => {
-                    this.additionalAmount = parseFloat(e.target.value) || 2000;
-                    this.updateDataDisplay();
-                });
-
-                document.getElementById('initialCapital').addEventListener('input', (e) => {
-                    this.initialCapital = parseFloat(e.target.value) || 100000;
-                    this.updateDataDisplay();
-                });
-
-                document.getElementById('totalYears').addEventListener('input', (e) => {
-                    this.totalYears = parseInt(e.target.value) || 25;
-                    this.updateDataDisplay();
-                });
-
-                document.getElementById('yearStep').addEventListener('input', (e) => {
-                    this.yearStep = parseInt(e.target.value) || 2;
-                    this.updateDataDisplay();
-                });
-
-                // 收益率选择
-                document.getElementById('rateSelector').addEventListener('click', (e) => {
-                    if (e.target.classList.contains('rate-option')) {
-                        e.target.classList.toggle('active');
-                        this.updateSelectedRates();
-                        this.updateDataDisplay();
-                    }
-                });
-            }
-
-            toggleAdditionalInputs() {
-                const additionalGroup = document.getElementById('additionalAmountGroup');
-                const initialCapitalGroup = document.getElementById('initialCapitalGroup');
+                const monthlyInput = document.getElementById('monthlyAmount');
+                const rateSlider = document.getElementById('returnRate');
                 
-                if (this.investmentType === 'increasing') {
-                    additionalGroup.style.display = 'block';
-                    initialCapitalGroup.style.display = 'none';
-                } else if (this.investmentType === 'withdrawal') {
-                    additionalGroup.style.display = 'none';
-                    initialCapitalGroup.style.display = 'block';
-                } else {
-                    additionalGroup.style.display = 'none';
-                    initialCapitalGroup.style.display = 'none';
-                }
+                monthlyInput.addEventListener('input', (e) => {
+                    this.monthlyAmount = parseFloat(e.target.value) || 1000;
+                    this.calculate();
+                });
+
+                rateSlider.addEventListener('input', (e) => {
+                    const rate = parseFloat(e.target.value);
+                    this.annualRate = rate / 100;
+                    document.getElementById('rateDisplay').textContent = rate.toFixed(1);
+                    this.calculate();
+                });
             }
 
-            updateSelectedRates() {
-                const activeRates = document.querySelectorAll('.rate-option.active');
-                this.selectedRates = Array.from(activeRates).map(el => parseInt(el.dataset.rate));
+            // 复利计算公式
+            calculateCompoundInvestment() {
+                const monthlyRate = this.annualRate / 12;
+                const totalMonths = this.years * 12;
+                
+                if (monthlyRate === 0) {
+                    return this.monthlyAmount * totalMonths;
+                }
+                
+                // FV = PMT × [((1 + r)^n - 1) / r]
+                return this.monthlyAmount * (Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate;
             }
 
-            // 计算不同投资方式的收益
-            calculateInvestment(years, rate) {
-                const annualRate = rate / 100;
-                let totalValue = 0;
-
-                switch (this.investmentType) {
-                    case 'equal':
-                        // 每年等额投资
-                        for (let year = 1; year <= years; year++) {
-                            totalValue += this.annualAmount * Math.pow(1 + annualRate, years - year + 1);
-                        }
-                        break;
-
-                    case 'increasing':
-                        // 每年追加相同数额
-                        for (let year = 1; year <= years; year++) {
-                            const yearlyAmount = this.annualAmount + (year - 1) * this.additionalAmount;
-                            totalValue += yearlyAmount * Math.pow(1 + annualRate, years - year + 1);
-                        }
-                        break;
-
-                    case 'withdrawal':
-                        // 每年从总资金抽出等额
-                        totalValue = this.initialCapital;
-                        for (let year = 1; year <= years; year++) {
-                            totalValue = (totalValue - this.annualAmount) * (1 + annualRate);
-                        }
-                        totalValue = Math.max(0, totalValue); // 确保不为负数
-                        break;
+            calculateSavings() {
+                const monthlyRate = this.savingsRate / 12;
+                const totalMonths = this.years * 12;
+                
+                if (monthlyRate === 0) {
+                    return this.monthlyAmount * totalMonths;
                 }
+                
+                return this.monthlyAmount * (Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate;
+            }
 
-                return totalValue;
+            calculateSpeculation() {
+                const totalInvested = this.monthlyAmount * this.years * 12;
+                return totalInvested * (1 - this.speculationLoss);
             }
 
             formatCurrency(amount) {
@@ -886,113 +888,90 @@
                 });
             }
 
-            updateDataDisplay() {
-                this.updateTable();
-                this.updateChart();
-            }
-
-            updateTable() {
-                const header = document.getElementById('tableHeader');
-                const body = document.getElementById('tableBody');
-
-                // 清空现有内容
-                header.innerHTML = '<th>年限</th>';
-                body.innerHTML = '';
-
-                // 生成收益率列头
-                this.selectedRates.forEach(rate => {
-                    header.innerHTML += `<th>${rate}%</th>`;
-                });
-
-                // 生成表格行
-                for (let year = this.yearStep; year <= this.totalYears; year += this.yearStep) {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `<td><strong>${year}年</strong></td>`;
-                    
-                    this.selectedRates.forEach(rate => {
-                        const amount = this.calculateInvestment(year, rate);
-                        row.innerHTML += `<td>${this.formatCurrency(amount)}</td>`;
-                    });
-                    
-                    body.appendChild(row);
-                }
-            }
-
-            updateChart() {
-                const ctx = document.getElementById('investmentChart').getContext('2d');
+            animateValue(element, start, end, duration = 1000) {
+                if (start === end) return;
                 
-                if (this.chart) {
-                    this.chart.destroy();
-                }
-
-                const years = [];
-                for (let year = this.yearStep; year <= this.totalYears; year += this.yearStep) {
-                    years.push(year);
-                }
-
-                const datasets = [];
-                const colors = ['#667eea', '#764ba2', '#ffecd2', '#fcb69f', '#ff9a9e'];
-
-                this.selectedRates.forEach((rate, index) => {
-                    const data = years.map(year => 
-                        this.calculateInvestment(year, rate)
-                    );
+                // 添加滚动动画类
+                element.classList.add('rolling-animation');
+                
+                const startTimestamp = performance.now();
+                const step = (timestamp) => {
+                    const elapsed = timestamp - startTimestamp;
+                    const progress = Math.min(elapsed / duration, 1);
                     
-                    datasets.push({
-                        label: `${rate}% 年化收益`,
-                        data: data,
-                        borderColor: colors[index % colors.length],
-                        backgroundColor: colors[index % colors.length] + '40',
-                        fill: false,
-                        tension: 0.4
-                    });
-                });
-
-                const investmentTypeText = {
-                    'equal': '每年等额',
-                    'increasing': '每年递增',
-                    'withdrawal': '定期提取'
-                };
-
-                this.chart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: years.map(y => y + '年'),
-                        datasets: datasets
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            title: {
-                                display: true,
-                                text: `投资收益对比 (${investmentTypeText[this.investmentType]} - 年投资${this.annualAmount.toLocaleString()}元)`
-                            },
-                            legend: {
-                                display: true,
-                                position: 'top'
-                            }
-                        },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                ticks: {
-                                    callback: function(value) {
-                                        return '¥' + value.toLocaleString();
-                                    }
-                                }
-                            }
-                        },
-                        interaction: {
-                            intersect: false,
-                            mode: 'index'
-                        }
+                    // 使用缓动函数
+                    const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                    const current = start + (end - start) * easeOutQuart;
+                    
+                    element.textContent = this.formatCurrency(current);
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    } else {
+                        // 动画完成后移除动画类
+                        setTimeout(() => {
+                            element.classList.remove('rolling-animation');
+                        }, 100);
                     }
-                });
+                };
+                requestAnimationFrame(step);
+            }
+
+            updateChartBar(barId, value, maxValue) {
+                const bar = document.getElementById(barId);
+                const height = (value / maxValue) * 200; // 最大高度200px
+                bar.style.height = height + 'px';
+            }
+
+            calculate() {
+                const investmentTotal = this.calculateCompoundInvestment();
+                const savingsTotal = this.calculateSavings();
+                const speculationTotal = this.calculateSpeculation();
+                const totalInvested = this.monthlyAmount * this.years * 12;
+
+                // 动画更新数值
+                const investmentEl = document.getElementById('investmentResult');
+                const savingsEl = document.getElementById('savingsResult');
+                const speculationEl = document.getElementById('speculationResult');
+                
+                // 获取当前值用于动画
+                const currentInvestment = parseFloat(investmentEl.textContent.replace(/[¥,]/g, '')) || 0;
+                const currentSavings = parseFloat(savingsEl.textContent.replace(/[¥,]/g, '')) || 0;
+                const currentSpeculation = parseFloat(speculationEl.textContent.replace(/[¥,]/g, '')) || 0;
+
+                this.animateValue(investmentEl, currentInvestment, investmentTotal);
+                this.animateValue(savingsEl, currentSavings, savingsTotal);
+                this.animateValue(speculationEl, currentSpeculation, speculationTotal);
+
+                // 更新图表
+                const maxValue = Math.max(investmentTotal, savingsTotal, speculationTotal);
+                setTimeout(() => {
+                    this.updateChartBar('chartInvestment', investmentTotal, maxValue);
+                    this.updateChartBar('chartSavings', savingsTotal, maxValue);
+                    this.updateChartBar('chartSpeculation', speculationTotal, maxValue);
+                    
+                    // 更新图表数值
+                    document.getElementById('chartInvestmentValue').textContent = this.formatCurrency(investmentTotal);
+                    document.getElementById('chartSavingsValue').textContent = this.formatCurrency(savingsTotal);
+                    document.getElementById('chartSpeculationValue').textContent = this.formatCurrency(speculationTotal);
+                }, 200);
+
+                // 更新洞察数据
+                const savingsMultiple = (investmentTotal / savingsTotal).toFixed(1);
+                const speculationMultiple = (investmentTotal / speculationTotal).toFixed(1);
+                const compoundGain = investmentTotal - totalInvested;
+                const growthRate = ((compoundGain / totalInvested) * 100).toFixed(0);
+
+                document.getElementById('savingsMultiple').textContent = savingsMultiple;
+                document.getElementById('speculationMultiple').textContent = speculationMultiple;
+                document.getElementById('monthlyDisplay').textContent = this.monthlyAmount.toLocaleString();
+                document.getElementById('totalInvested').textContent = (totalInvested / 10000).toFixed(0) + '万';
+                document.getElementById('compoundGain').textContent = (compoundGain / 10000).toFixed(1) + '万';
+                document.getElementById('growthRate').textContent = growthRate + '%';
             }
         }
 
-        // FAQ 优化交互
+        // FAQ 简化交互
         function toggleFAQ(element) {
             const answer = element.nextElementSibling;
             const icon = element.querySelector('.faq-icon');
@@ -1028,6 +1007,7 @@
             const toggle = document.querySelector('.lang-toggle');
             toggle.classList.toggle('active');
             
+            // 这里可以实现实际的语言切换逻辑
             if (toggle.classList.contains('active')) {
                 console.log('切换到英文');
             } else {
@@ -1046,10 +1026,33 @@
             }
         });
 
-        // 页面加载完成后初始化
+        // 页面加载完成后初始化计算器
         document.addEventListener('DOMContentLoaded', () => {
             new InvestmentCalculator();
         });
+
+        // 页面滚动动画效果
+        function handleScrollAnimation() {
+            const elements = document.querySelectorAll('.result-card, .chart-bar');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
+            });
+        }
+
+        // 初始化动画
+        document.addEventListener('DOMContentLoaded', handleScrollAnimation);
     </script>
 </body>
 </html> 
