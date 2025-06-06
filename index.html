@@ -184,9 +184,8 @@
 
         .settings-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
         .setting-group {
@@ -363,8 +362,8 @@
             border: none;
             width: 100%;
             text-align: left;
-            padding: 20px 0;
-            font-size: 1rem;
+            padding: 24px 0;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--text-primary);
             cursor: pointer;
@@ -372,14 +371,16 @@
             justify-content: space-between;
             align-items: center;
             transition: box-shadow 0.2s ease;
+            border-radius: 8px;
         }
 
         .faq-question:hover {
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);
         }
 
         .faq-question:focus {
             outline: none;
+            box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);
         }
 
         .faq-question-text {
@@ -401,7 +402,7 @@
 
         .faq-answer {
             background: var(--bg-primary);
-            color: var(--text-primary);
+            color: #374151;
             line-height: 1.7;
             max-height: 0;
             overflow: hidden;
@@ -414,6 +415,114 @@
             max-height: 200px;
             opacity: 1;
             padding-bottom: 20px;
+        }
+
+        /* 数字选择器 */
+        .number-selector {
+            position: relative;
+            display: inline-block;
+        }
+
+        .number-input {
+            width: 80px;
+            padding: 8px 24px 8px 12px;
+            font-size: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--bg-card);
+            transition: all 0.3s ease;
+            font-family: 'JetBrains Mono', monospace;
+            text-align: center;
+        }
+
+        .number-input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .number-controls {
+            position: absolute;
+            right: 2px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+
+        .number-btn {
+            width: 18px;
+            height: 12px;
+            border: none;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .number-btn:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .number-btn:first-child {
+            border-radius: 3px 3px 0 0;
+        }
+
+        .number-btn:last-child {
+            border-radius: 0 0 3px 3px;
+        }
+
+        /* 密度控制器 */
+        .density-controller {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+
+        .density-pill {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 6px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .density-btn {
+            width: 24px;
+            height: 24px;
+            border: none;
+            background: var(--bg-card);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--text-secondary);
+        }
+
+        .density-btn:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .density-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            min-width: 60px;
+            text-align: center;
         }
 
         footer {
@@ -509,6 +618,11 @@
                 gap: 20px;
             }
 
+            .setting-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
             .rate-selector {
                 justify-content: center;
             }
@@ -533,6 +647,73 @@
             .faq-container {
                 padding-top: 40px;
             }
+
+            .input-with-slider {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .input-with-slider .setting-input {
+                width: 100%;
+            }
+        }
+
+        /* 设置行布局 */
+        .setting-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* 输入框与滑轮组合 */
+        .input-with-slider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .range-slider {
+            flex: 1;
+            height: 6px;
+            border-radius: 3px;
+            background: var(--border-color);
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+            transition: background 0.3s ease;
+        }
+
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(102, 126, 234, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .range-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+            box-shadow: 0 3px 8px rgba(102, 126, 234, 0.4);
+        }
+
+        .range-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 6px rgba(102, 126, 234, 0.3);
+        }
+
+        .input-with-slider .setting-input {
+            width: 80px;
+            flex-shrink: 0;
+            text-align: center;
         }
     </style>
 </head>
@@ -580,51 +761,70 @@
                     </div>
 
                     <div class="setting-group">
-                        <label for="annualAmount">
-                            <i class="fas fa-money-bill-wave"></i> 每年投资金额 (元)
+                        <label for="rateStep">
+                            <i class="fas fa-percentage"></i> 收益率差值
                         </label>
-                        <input type="number" id="annualAmount" class="setting-input" value="12000" min="1000" max="500000" step="1000">
+                        <select id="rateStep" class="setting-select">
+                            <option value="1">1% (1%, 2%, 3%, 4%, 5%)</option>
+                            <option value="2">2% (2%, 4%, 6%, 8%, 10%)</option>
+                            <option value="3">3% (3%, 6%, 9%, 12%, 15%)</option>
+                            <option value="4">4% (4%, 8%, 12%, 16%, 20%)</option>
+                            <option value="5" selected>5% (5%, 10%, 15%, 20%, 25%)</option>
+                            <option value="6">6% (6%, 12%, 18%, 24%, 30%)</option>
+                            <option value="7">7% (7%, 14%, 21%, 28%, 35%)</option>
+                        </select>
                     </div>
 
-                    <div class="setting-group" id="additionalAmountGroup" style="display: none;">
-                        <label for="additionalAmount">
-                            <i class="fas fa-plus-circle"></i> 每年追加金额 (元)
+                    <div class="setting-group" id="additionalUnitsGroup" style="display: none;">
+                        <label for="additionalUnits">
+                            <i class="fas fa-plus-circle"></i> 每年追加单位 (x)
                         </label>
-                        <input type="number" id="additionalAmount" class="setting-input" value="2000" min="0" max="100000" step="500">
+                        <div class="number-selector">
+                            <input type="number" id="additionalUnits" class="number-input" value="2" min="0" max="20" step="0.5">
+                            <div class="number-controls">
+                                <button type="button" class="number-btn" onclick="adjustNumber('additionalUnits', 0.5)">▲</button>
+                                <button type="button" class="number-btn" onclick="adjustNumber('additionalUnits', -0.5)">▼</button>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="setting-group" id="initialCapitalGroup" style="display: none;">
-                        <label for="initialCapital">
-                            <i class="fas fa-piggy-bank"></i> 初始总资金 (元)
+                    <div class="setting-group" id="withdrawalUnitsGroup" style="display: none;">
+                        <label for="withdrawalUnits">
+                            <i class="fas fa-hand-holding-usd"></i> 每年提取单位 (x)
                         </label>
-                        <input type="number" id="initialCapital" class="setting-input" value="100000" min="10000" max="10000000" step="10000">
+                        <div class="number-selector">
+                            <input type="number" id="withdrawalUnits" class="number-input" value="5" min="1" max="50" step="1">
+                            <div class="number-controls">
+                                <button type="button" class="number-btn" onclick="adjustNumber('withdrawalUnits', 1)">▲</button>
+                                <button type="button" class="number-btn" onclick="adjustNumber('withdrawalUnits', -1)">▼</button>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="setting-group">
-                        <label for="totalYears">
-                            <i class="fas fa-calendar-alt"></i> 总投资年限 (年)
+                    <div class="setting-group" id="initialUnitsGroup" style="display: none;">
+                        <label for="initialUnits">
+                            <i class="fas fa-piggy-bank"></i> 初始总单位 (x)
                         </label>
-                        <input type="number" id="totalYears" class="setting-input" value="25" min="5" max="50" step="1">
-                    </div>
-
-                    <div class="setting-group">
-                        <label for="yearStep">
-                            <i class="fas fa-step-forward"></i> 年限显示间隔 (年)
-                        </label>
-                        <input type="number" id="yearStep" class="setting-input" value="2" min="1" max="5" step="1">
+                        <div class="number-selector">
+                            <input type="number" id="initialUnits" class="number-input" value="100" min="10" max="1000" step="10">
+                            <div class="number-controls">
+                                <button type="button" class="number-btn" onclick="adjustNumber('initialUnits', 10)">▲</button>
+                                <button type="button" class="number-btn" onclick="adjustNumber('initialUnits', -10)">▼</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="setting-group">
                     <label>
-                        <i class="fas fa-percentage"></i> 年化收益率选择
+                        <i class="fas fa-chart-line"></i> 年化收益率选择
                     </label>
                     <div class="rate-selector" id="rateSelector">
                         <div class="rate-option active" data-rate="5">5%</div>
-                        <div class="rate-option" data-rate="10">10%</div>
-                        <div class="rate-option" data-rate="15">15%</div>
-                        <div class="rate-option" data-rate="20">20%</div>
-                        <div class="rate-option" data-rate="25">25%</div>
+                        <div class="rate-option active" data-rate="10">10%</div>
+                        <div class="rate-option active" data-rate="15">15%</div>
+                        <div class="rate-option active" data-rate="20">20%</div>
+                        <div class="rate-option active" data-rate="25">25%</div>
                     </div>
                 </div>
             </section>
@@ -633,6 +833,18 @@
             <section class="data-section">
                 <h2>📈 收益数据分析</h2>
                 
+                <div class="density-controller">
+                    <div class="density-pill">
+                        <button type="button" class="density-btn" onclick="adjustDensity(-1)">−</button>
+                        <span class="density-label" id="densityLabel">每2年</span>
+                        <button type="button" class="density-btn" onclick="adjustDensity(1)">+</button>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="investmentChart"></canvas>
+                </div>
+
                 <div class="data-table-container">
                     <table class="data-table" id="dataTable">
                         <thead>
@@ -648,10 +860,6 @@
                         <tbody id="tableBody">
                         </tbody>
                     </table>
-                </div>
-
-                <div class="chart-container">
-                    <canvas id="investmentChart"></canvas>
                 </div>
             </section>
 
@@ -767,16 +975,18 @@
         // 投资计算器类
         class InvestmentCalculator {
             constructor() {
-                this.annualAmount = 12000;
+                this.baseUnits = 1; // 固定为1x
                 this.investmentType = 'equal';
-                this.additionalAmount = 2000;
-                this.initialCapital = 100000;
-                this.totalYears = 25;
+                this.additionalUnits = 2;
+                this.withdrawalUnits = 5;
+                this.initialUnits = 100;
                 this.yearStep = 2;
+                this.rateStep = 5;
                 this.selectedRates = [5, 10, 15, 20, 25];
                 this.chart = null;
                 
                 this.initEventListeners();
+                this.updateRateOptions();
                 this.updateDataDisplay();
             }
 
@@ -788,29 +998,26 @@
                     this.updateDataDisplay();
                 });
 
-                // 基础参数变化
-                document.getElementById('annualAmount').addEventListener('input', (e) => {
-                    this.annualAmount = parseFloat(e.target.value) || 12000;
+                // 收益率差值变化
+                document.getElementById('rateStep').addEventListener('change', (e) => {
+                    this.rateStep = parseInt(e.target.value);
+                    this.updateRateOptions();
                     this.updateDataDisplay();
                 });
 
-                document.getElementById('additionalAmount').addEventListener('input', (e) => {
-                    this.additionalAmount = parseFloat(e.target.value) || 2000;
+                // 数字选择器变化
+                document.getElementById('additionalUnits').addEventListener('input', (e) => {
+                    this.additionalUnits = parseFloat(e.target.value) || 2;
                     this.updateDataDisplay();
                 });
 
-                document.getElementById('initialCapital').addEventListener('input', (e) => {
-                    this.initialCapital = parseFloat(e.target.value) || 100000;
+                document.getElementById('withdrawalUnits').addEventListener('input', (e) => {
+                    this.withdrawalUnits = parseFloat(e.target.value) || 5;
                     this.updateDataDisplay();
                 });
 
-                document.getElementById('totalYears').addEventListener('input', (e) => {
-                    this.totalYears = parseInt(e.target.value) || 25;
-                    this.updateDataDisplay();
-                });
-
-                document.getElementById('yearStep').addEventListener('input', (e) => {
-                    this.yearStep = parseInt(e.target.value) || 2;
+                document.getElementById('initialUnits').addEventListener('input', (e) => {
+                    this.initialUnits = parseFloat(e.target.value) || 100;
                     this.updateDataDisplay();
                 });
 
@@ -824,19 +1031,39 @@
                 });
             }
 
+            updateRateOptions() {
+                const rateSelector = document.getElementById('rateSelector');
+                rateSelector.innerHTML = '';
+                
+                for (let i = 1; i <= 5; i++) {
+                    const rate = this.rateStep * i;
+                    const option = document.createElement('div');
+                    option.className = 'rate-option active';
+                    option.dataset.rate = rate;
+                    option.textContent = rate + '%';
+                    rateSelector.appendChild(option);
+                }
+                
+                this.updateSelectedRates();
+            }
+
             toggleAdditionalInputs() {
-                const additionalGroup = document.getElementById('additionalAmountGroup');
-                const initialCapitalGroup = document.getElementById('initialCapitalGroup');
+                const additionalGroup = document.getElementById('additionalUnitsGroup');
+                const withdrawalGroup = document.getElementById('withdrawalUnitsGroup');
+                const initialGroup = document.getElementById('initialUnitsGroup');
                 
                 if (this.investmentType === 'increasing') {
                     additionalGroup.style.display = 'block';
-                    initialCapitalGroup.style.display = 'none';
+                    withdrawalGroup.style.display = 'none';
+                    initialGroup.style.display = 'none';
                 } else if (this.investmentType === 'withdrawal') {
                     additionalGroup.style.display = 'none';
-                    initialCapitalGroup.style.display = 'block';
+                    withdrawalGroup.style.display = 'block';
+                    initialGroup.style.display = 'block';
                 } else {
                     additionalGroup.style.display = 'none';
-                    initialCapitalGroup.style.display = 'none';
+                    withdrawalGroup.style.display = 'none';
+                    initialGroup.style.display = 'none';
                 }
             }
 
@@ -845,45 +1072,49 @@
                 this.selectedRates = Array.from(activeRates).map(el => parseInt(el.dataset.rate));
             }
 
-            // 计算不同投资方式的收益
+            // 计算不同投资方式的收益（使用抽象单位）
             calculateInvestment(years, rate) {
                 const annualRate = rate / 100;
                 let totalValue = 0;
+                let totalInvested = 0; // 添加累计投资追踪
 
                 switch (this.investmentType) {
                     case 'equal':
-                        // 每年等额投资
+                        // 每年等额投资 1x
                         for (let year = 1; year <= years; year++) {
-                            totalValue += this.annualAmount * Math.pow(1 + annualRate, years - year + 1);
+                            totalValue += this.baseUnits * Math.pow(1 + annualRate, years - year + 1);
+                            totalInvested += this.baseUnits;
                         }
                         break;
 
                     case 'increasing':
                         // 每年追加相同数额
                         for (let year = 1; year <= years; year++) {
-                            const yearlyAmount = this.annualAmount + (year - 1) * this.additionalAmount;
-                            totalValue += yearlyAmount * Math.pow(1 + annualRate, years - year + 1);
+                            const yearlyUnits = this.baseUnits + (year - 1) * this.additionalUnits;
+                            totalValue += yearlyUnits * Math.pow(1 + annualRate, years - year + 1);
+                            totalInvested += yearlyUnits;
                         }
                         break;
 
                     case 'withdrawal':
                         // 每年从总资金抽出等额
-                        totalValue = this.initialCapital;
+                        totalValue = this.initialUnits;
                         for (let year = 1; year <= years; year++) {
-                            totalValue = (totalValue - this.annualAmount) * (1 + annualRate);
+                            totalValue = (totalValue - this.withdrawalUnits) * (1 + annualRate);
                         }
                         totalValue = Math.max(0, totalValue); // 确保不为负数
+                        totalInvested = this.initialUnits; // 初始投资
                         break;
                 }
 
-                return totalValue;
+                return { totalValue, totalInvested };
             }
 
-            formatCurrency(amount) {
-                return '¥' + amount.toLocaleString('zh-CN', {
-                    minimumFractionDigits: 0,
-                    maximumFractionDigits: 0
-                });
+            formatUnits(amount) {
+                return amount.toLocaleString('zh-CN', {
+                    minimumFractionDigits: 1,
+                    maximumFractionDigits: 1
+                }) + 'x';
             }
 
             updateDataDisplay() {
@@ -899,19 +1130,32 @@
                 header.innerHTML = '<th>年限</th>';
                 body.innerHTML = '';
 
+                // 如果是递增投资，添加累计投资列
+                const showInvestedColumn = this.investmentType === 'increasing';
+                if (showInvestedColumn) {
+                    header.innerHTML += '<th>累计投资</th>';
+                }
+
                 // 生成收益率列头
                 this.selectedRates.forEach(rate => {
                     header.innerHTML += `<th>${rate}%</th>`;
                 });
 
-                // 生成表格行
-                for (let year = this.yearStep; year <= this.totalYears; year += this.yearStep) {
+                // 生成表格行 - 固定显示1-20年
+                const maxYears = 20;
+                for (let year = this.yearStep; year <= maxYears; year += this.yearStep) {
                     const row = document.createElement('tr');
                     row.innerHTML = `<td><strong>${year}年</strong></td>`;
                     
+                    // 如果是递增投资，显示累计投资
+                    if (showInvestedColumn) {
+                        const { totalInvested } = this.calculateInvestment(year, this.selectedRates[0]);
+                        row.innerHTML += `<td>${this.formatUnits(totalInvested)}</td>`;
+                    }
+                    
                     this.selectedRates.forEach(rate => {
-                        const amount = this.calculateInvestment(year, rate);
-                        row.innerHTML += `<td>${this.formatCurrency(amount)}</td>`;
+                        const { totalValue } = this.calculateInvestment(year, rate);
+                        row.innerHTML += `<td>${this.formatUnits(totalValue)}</td>`;
                     });
                     
                     body.appendChild(row);
@@ -926,7 +1170,8 @@
                 }
 
                 const years = [];
-                for (let year = this.yearStep; year <= this.totalYears; year += this.yearStep) {
+                const maxYears = 20;
+                for (let year = this.yearStep; year <= maxYears; year += this.yearStep) {
                     years.push(year);
                 }
 
@@ -935,7 +1180,7 @@
 
                 this.selectedRates.forEach((rate, index) => {
                     const data = years.map(year => 
-                        this.calculateInvestment(year, rate)
+                        this.calculateInvestment(year, rate).totalValue
                     );
                     
                     datasets.push({
@@ -966,7 +1211,7 @@
                         plugins: {
                             title: {
                                 display: true,
-                                text: `投资收益对比 (${investmentTypeText[this.investmentType]} - 年投资${this.annualAmount.toLocaleString()}元)`
+                                text: `投资收益对比 (${investmentTypeText[this.investmentType]} - 基础${this.baseUnits}x单位)`
                             },
                             legend: {
                                 display: true,
@@ -978,7 +1223,7 @@
                                 beginAtZero: true,
                                 ticks: {
                                     callback: function(value) {
-                                        return '¥' + value.toLocaleString();
+                                        return value.toFixed(1) + 'x';
                                     }
                                 }
                             }
@@ -1046,9 +1291,39 @@
             }
         });
 
+        // 数字选择器调整函数
+        function adjustNumber(inputId, step) {
+            const input = document.getElementById(inputId);
+            const currentValue = parseFloat(input.value) || 0;
+            const newValue = Math.max(parseFloat(input.min) || 0, 
+                                    Math.min(parseFloat(input.max) || 1000, currentValue + step));
+            input.value = newValue;
+            input.dispatchEvent(new Event('input'));
+        }
+
+        // 密度控制器
+        let densityStep = 2;
+        const densityOptions = [1, 2, 3, 4, 5];
+        let densityIndex = 1; // 默认每2年
+
+        function adjustDensity(direction) {
+            densityIndex = Math.max(0, Math.min(densityOptions.length - 1, densityIndex + direction));
+            densityStep = densityOptions[densityIndex];
+            
+            // 更新标签
+            const labels = ['每1年', '每2年', '每3年', '每4年', '每5年'];
+            document.getElementById('densityLabel').textContent = labels[densityIndex];
+            
+            // 更新计算器的年份间隔
+            if (window.calculator) {
+                window.calculator.yearStep = densityStep;
+                window.calculator.updateDataDisplay();
+            }
+        }
+
         // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', () => {
-            new InvestmentCalculator();
+            window.calculator = new InvestmentCalculator();
         });
     </script>
 </body>
